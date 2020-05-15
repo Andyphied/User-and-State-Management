@@ -19,7 +19,8 @@ def create_app(app_name=PKG_NAME, **kwargs):
     from .app import api_bp
     app.register_blueprint(api_bp, url_prefix='/api')
 
-    from database.models import db, mongo, flask_bcrypt
+    from database.models import db, flask_bcrypt
+    from database.collections import mongo
     # Initiliaze Database 1
     mongo.init_app(app)
 
